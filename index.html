@@ -1,39 +1,260 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Paper</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            line-height: 1.6;
-        }
-        h1 {
-            font-size: 28px;
-            color: #333;
-        }
-        p {
-            font-size: 18px;
-        }
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="We presented Generative Predictive Control (GPC), a learning control 
+        paradigm that combines a generative policy with a predictive world model during 
+        online planning.">
+  <meta name="keywords" content="Strengthening Generative Robot Policies through Predictive World Modeling">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strengthening Generative Robot Policies through Predictive World Modeling</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap JS (with Popper.js) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="https://seas.harvard.edu/themes/custom/seas/favicon.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <!-- <script src="./static/js/index.js"></script> -->
 </head>
 <body>
-    <h1>On the Surprising Robustness of Sequential Convex
-        Optimization for Contact-Implicit Motion Planning</h1>
-    <p><strong>Authors:</strong> Yulin Li, Haoyu Han, Shucheng Kang, Jun Ma, Heng Yang</p>
-    <p><strong>Abstract:</strong> A short summary of your paper goes here.</p>
-    <p><a href="path-to-your-paper.pdf">📄 Download Paper (PDF)</a></p>
-    <p><a href="https://computationalrobotics.github.io/CRISP/">🔗 GitHub Repository</a></p>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            Strengthening Generative Robot Policies through Predictive World Modeling
+          </h1>
+          <!-- <h2 class="title is-3 publication-title">
+            Conference Title
+          </h2> -->
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://han20192019.github.io/">Han Qi</a><sup>1,*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://haochengyin.github.io/">Haocheng Yin</a><sup>1,*</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yilundu.github.io/">Yilun Du</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://hankyang.seas.harvard.edu/">Heng Yang</a><sup>1</sup>
+            </span>
+
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <sup>1</sup>School of Engineering and Applied Sciences, Harvard University
+            </span><br>
+            <span class="author-block"><sup>*</sup>Equal contribution</span>
+            <!-- <span class="author-block">
+              <sup>&dagger;</sup>Work done during visit at the 
+              <a href="https://computationalrobotics.seas.harvard.edu/">
+                Harvard Computational Robotics Lab
+              </a>
+            </span> -->
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <!-- <span class="link-block">
+                <a href="https://arxiv.org/pdf/2410.05063"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span> -->
+              <span class="link-block">
+                <!-- href="https://arxiv.org/abs/2410.05063" -->
+                <a 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv (Coming soon)</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <!-- https://github.com/google/nerfies -->
+                <a 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code (Coming soon)</span>
+                </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </a>
+              </span>  
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Overview. -->
+<div class="content is-centered is-full-width has-text-centered">
+  <img src="./static/images/gpc_overview.png" width="65%">
+</div>
+<!-- Overview. -->
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present generative predictive control (<span class="dnerf">GPC</span>) , 
+            a learning control framework that (i) clones a <em>generative</em> diffusion-based 
+            policy from expert demonstrations, (ii) trains a <em>predictive</em> 
+            action-conditioned world model from both expert demonstrations and random 
+            explorations,  and (iii) synthesizes an online planner that ranks and optimizes 
+            the action proposals from (i) by looking ahead into the future using the world 
+            model from (ii). Crucially, we show that <em>conditional video diffusion</em> allows 
+            learning (near) physics-accurate <em>visual</em> world models and enable robust visual 
+            foresight. Focusing on planar pushing with rich contact and collision, we show 
+            <span class="dnerf">GPC</span> dominates behavior cloning across state-based and 
+            vision-based, simulated and real-world experiments.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>  @inproceedings{qi2025control_oriented_NC,
+    title={{Control-oriented Clustering of Visual Latent Representation}},
+    author={Qi, Han and Yin, Haocheng and Yang, Heng},
+    booktitle={The Thirteenth International Conference on Learning Representations (ICLR)},
+    year={2025}
+  }
+</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <!-- <div class="content has-text-centered">
+      <a class="icon-link"
+         href=""> -->
+         <!-- ./static/videos/nerfies_paper.pdf -->
+        <!-- <i class="fas fa-file-pdf"></i>
+      </a> -->
+      <!-- https://github.com/keunhong -->
+      <!-- <a class="icon-link" href="" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a> -->
+    <!-- </div> -->
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            The source code of this website is borrowed from <a
+              href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>. We thank the authors for sharing the template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
