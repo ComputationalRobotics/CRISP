@@ -184,7 +184,7 @@
 
 <!-- Overview. -->
 <div class="content is-centered is-full-width has-text-centered">
-  <img src="./static/images/gpc_overview.png" width="65%">
+  <img src="./static/images/crisp_overview.png" width="65%">
 </div>
 <!-- Overview. -->
 
@@ -196,17 +196,8 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present generative predictive control (<span class="dnerf">GPC</span>) , 
-            a learning control framework that (i) clones a <em>generative</em> diffusion-based 
-            policy from expert demonstrations, (ii) trains a <em>predictive</em> 
-            action-conditioned world model from both expert demonstrations and random 
-            explorations,  and (iii) synthesizes an online planner that ranks and optimizes 
-            the action proposals from (i) by looking ahead into the future using the world 
-            model from (ii). Crucially, we show that <em>conditional video diffusion</em> allows 
-            learning (near) physics-accurate <em>visual</em> world models and enable robust visual 
-            foresight. Focusing on planar pushing with rich contact and collision, we show 
-            <span class="dnerf">GPC</span> dominates behavior cloning across state-based and 
-            vision-based, simulated and real-world experiments.
+            Contact-implicit motion planning---embedding contact sequencing as implicit complementarity constraints---holds the promise of leveraging continuous optimization to discover new contact patterns online. Nevertheless, the resulting optimization, being an instance of Mathematical Programming with Complementary Constraints, fails the classical constraint qualifications that are crucial for the convergence of popular numerical solvers.  
+            We present \underline{r}obust \underline{c}ontact-\underline{i}mplicit motion planning with \underline{s}equential convex \underline{p}rogramming (\scenario{CRISP}), a solver that departs from the usual primal-dual algorithmic framework but instead focuses only on the primal problem. \crisp solves a convex quadratic program with an adaptive trust region radius at each iteration, and its convergence is evaluated by a merit function using weighted $\ell_1$ penalty. We (\emph{i}) prove sufficient conditions on \crisp's convergence to first-order stationary points of the merit function; (\emph{ii}) release a high-performance C++ implementation of \crisp with a generic nonlinear programming interface; and (\emph{iii}) demonstrate \crisp's surprising robustness in solving contact-implicit planning with naive initializations. In fact, \crisp solves several contact-implicit problems with an all-zero initialization.
           </p>
         </div>
       </div>
