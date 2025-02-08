@@ -121,25 +121,25 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <!-- PDF Link. -->
-              <!-- <span class="link-block">
-                <a href="https://arxiv.org/pdf/2410.05063"
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2502.01055"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
-                  <span>Paper</span>
+                  <span>arXiv</span>
                 </a>
-              </span> -->
-              <span class="link-block">
-                <!-- href="https://arxiv.org/abs/2410.05063" -->
+              </span>
+              <!-- <span class="link-block">
+                href="https://arxiv.org/abs/2502.01055"
                 <a 
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
-                  <span>arXiv (Coming soon)</span>
+                  <span>arXiv</span>
                 </a>
-              </span>
+              </span> -->
               <!-- Video Link. -->
               <!-- <span class="link-block">
                 <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
@@ -183,7 +183,7 @@
 <div class="content is-centered is-full-width has-text-centered">
   <img src="./static/images/crisp_overview.png" width="65%">
 </div>
-<!-- Overview. -->
+<!-- Overview.
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
@@ -196,7 +196,130 @@
       </h2>
     </div>
   </div>
+</section> -->
+<!-- Overview -->
+<section class="hero teaser">
+  <div class="container">
+    <div class="hero-body">
+      <div class="video-container">
+        <h3 class="video-title" id="video-title">Trajectories Animation</h3>
+        <button class="nav-button left" onclick="prevVideo()">&#9664;</button>
+        
+        <video id="main-video" controls hidden muted loop>
+          <source id="video-source" type="video/mp4">
+        </video>
+        
+        <button class="nav-button right" onclick="nextVideo()">&#9654;</button>
+        
+        <!-- 只在第一个视频显示的脚注 -->
+        <p class="footnote" id="footnote">Shallow trajectories represent initial guesses.</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<style>
+  .video-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    max-width: 1500px;
+    margin: auto;
+  }
+  
+  .video-title {
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  video {
+    width: 1400px;
+    height: 600px;
+    border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .nav-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .nav-button.left { left: -30px; }
+  .nav-button.right { right: -30px; }
+  
+  .footnote {
+    text-align: center;
+    font-size: 2rem;
+    color: gray;
+    margin-top: 10px;
+  }
+</style>
+
+<script>
+  const videoList = [
+    { src: "./static/images/pushbot.mp4", title: "Cartpole with Soft Walls" },
+    { src: "./static/images/pushbox.mp4", title: "Push Box" },
+    { src: "./static/images/transport.mp4", title: "Transport" },
+    { src: "./static/images/waiterhopper.mp4", title: "Hopper & Waiter" }
+  ];
+
+  let currentIndex = 0;
+  const videoElement = document.getElementById("main-video");
+  const videoSource = document.getElementById("video-source");
+  const titleElement = document.getElementById("video-title");
+  const footnote = document.getElementById("footnote");
+
+  function updateVideo() {
+    console.log("Updating video to index:", currentIndex);
+    videoElement.style.opacity = 0;
+    setTimeout(() => {
+      videoSource.src = videoList[currentIndex].src;
+      videoElement.load();
+      titleElement.textContent = videoList[currentIndex].title;
+      videoElement.style.opacity = 1;
+      videoElement.hidden = false;
+
+      // Auto-play
+      videoElement.play().catch(error => console.warn("Auto-play was prevented:", error));
+
+      // Display footnote only on the first video
+      footnote.style.display = currentIndex === 0 ? "block" : "none";
+    }, 300);
+  }
+
+  function prevVideo() {
+    currentIndex = (currentIndex - 1 + videoList.length) % videoList.length;
+    updateVideo();
+  }
+
+  function nextVideo() {
+    currentIndex = (currentIndex + 1) % videoList.length;
+    updateVideo();
+  }
+
+  // On page load, start the first video
+  window.onload = function() {
+    console.log("Page loaded, starting video");
+    updateVideo();
+  };
+</script>
+
+
+
+
+
 <section class="section">
   <div class="container is-max-desktop">
     <!-- Abstract. -->
@@ -206,7 +329,7 @@
         <div class="content has-text-justified">
           <p>
             Contact-implicit motion planning---embedding contact sequencing as implicit complementarity constraints---holds the promise of leveraging continuous optimization to discover new contact patterns online. Nevertheless, the resulting optimization, being an instance of Mathematical Programming with Complementary Constraints, fails the classical constraint qualifications that are crucial for the convergence of popular numerical solvers.  
-            We present robust contact-implicit motion planning with sequential convex programming (CRISP), a solver that departs from the usual primal-dual algorithmic framework but instead focuses only on the primal problem. CRISP solves a convex quadratic program with an adaptive trust region radius at each iteration, and its convergence is evaluated by a merit function using weighted l1 penalty. We (i) prove sufficient conditions on CRISP's convergence to first-order stationary points of the merit function; (ii) release a high-performance C++ implementation of \crisp with a generic nonlinear programming interface; and (iii) demonstrate CRISP's surprising robustness in solving contact-implicit planning with naive initializations. In fact, CRISP solves several contact-implicit problems with an all-zero initialization.
+            We present robust contact-implicit motion planning with sequential convex programming (CRISP), a solver that departs from the usual primal-dual algorithmic framework but instead focuses only on the primal problem. CRISP solves a convex quadratic program with an adaptive trust region radius at each iteration, and its convergence is evaluated by a merit function using weighted l1 penalty. We (i) prove sufficient conditions on CRISP's convergence to first-order stationary points of the merit function; (ii) release a high-performance C++ implementation of CRISP with a generic nonlinear programming interface; and (iii) demonstrate CRISP's surprising robustness in solving contact-implicit planning with naive initializations. In fact, CRISP solves several contact-implicit problems with an all-zero initialization.
           </p>
         </div>
       </div>
