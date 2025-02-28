@@ -183,20 +183,26 @@
 <div class="content is-centered is-full-width has-text-centered">
   <img src="./static/images/crisp_overview_v2.png" width="65%">
 </div>
-<!-- Overview.
-<section class="hero teaser">
+
+<section class="section">
   <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video id="teaser" autoplay muted loop playsinline height="100%">
-        <source src="./static/images/rss_supplementary_video.mp4"
-                type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        <span class="dnerf">CRISP</span> is a robust contact implicit motion planning framework with sequential convex optimization.
-      </h2>
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Contact-implicit motion planning---embedding contact sequencing as implicit complementarity constraints---holds the promise of leveraging continuous optimization to discover new contact patterns online. Nevertheless, the resulting optimization, being an instance of Mathematical Programming with Complementary Constraints, fails the classical constraint qualifications that are crucial for the convergence of popular numerical solvers.  
+            We present robust contact-implicit motion planning with sequential convex programming (CRISP), a solver that departs from the usual primal-dual algorithmic framework but instead focuses only on the primal problem. CRISP solves a convex quadratic program with an adaptive trust region radius at each iteration, and its convergence is evaluated by a merit function using weighted l1 penalty. We (i) prove sufficient conditions on CRISP's convergence to first-order stationary points of the merit function; (ii) release a high-performance C++ implementation of CRISP with a generic nonlinear programming interface; and (iii) demonstrate CRISP's surprising robustness in solving contact-implicit planning with naive initializations. In fact, CRISP solves several contact-implicit problems with an all-zero initialization.
+          </p>
+        </div>
+      </div>
     </div>
+    <!--/ Abstract. -->
+
   </div>
-</section> -->
+</section>
+
 <!-- Overview -->
 <section class="hero teaser">
   <div class="container">
@@ -273,8 +279,7 @@
     { src: "./static/images/pushbox.mp4", title: "Push Box" },
     { src: "./static/images/transport.mp4", title: "Transport" },
     { src: "./static/images/pushT.mp4", title: "Push T" },
-    { src: "./static/images/waiterhopper.mp4", title: "Hopper & Waiter" },
-    { src: "./static/images/real_world_pushT.mp4", title: "Real-World Push T (2x)" }
+    { src: "./static/images/waiterhopper.mp4", title: "Hopper & Waiter" }
   ];
 
   let currentIndex = 0;
@@ -319,27 +324,22 @@
 </script>
 
 
-
-
-
-<section class="section">
+<!-- Overview -->
+<section class="hero teaser">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Contact-implicit motion planning---embedding contact sequencing as implicit complementarity constraints---holds the promise of leveraging continuous optimization to discover new contact patterns online. Nevertheless, the resulting optimization, being an instance of Mathematical Programming with Complementary Constraints, fails the classical constraint qualifications that are crucial for the convergence of popular numerical solvers.  
-            We present robust contact-implicit motion planning with sequential convex programming (CRISP), a solver that departs from the usual primal-dual algorithmic framework but instead focuses only on the primal problem. CRISP solves a convex quadratic program with an adaptive trust region radius at each iteration, and its convergence is evaluated by a merit function using weighted l1 penalty. We (i) prove sufficient conditions on CRISP's convergence to first-order stationary points of the merit function; (ii) release a high-performance C++ implementation of CRISP with a generic nonlinear programming interface; and (iii) demonstrate CRISP's surprising robustness in solving contact-implicit planning with naive initializations. In fact, CRISP solves several contact-implicit problems with an all-zero initialization.
-          </p>
-        </div>
-      </div>
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/images/real_world_pushT.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered" style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%); font-size: 1.8rem; font-weight: bold; ">
+        Real-World Push T (2x)
+      </h2>
     </div>
-    <!--/ Abstract. -->
-
   </div>
 </section>
+
+<!-- gpt help me put a video here src: "./static/images/real_world_pushT.mp4", title: "Real-World Push T (2x)"  -->
 
 
 <!-- <section class="section" id="BibTeX">
