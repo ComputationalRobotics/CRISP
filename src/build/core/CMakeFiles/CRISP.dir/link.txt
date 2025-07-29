@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCRISP.a CMakeFiles/CRISP.dir/src/cppad_core/CppAdInterface.cpp.o
+/usr/bin/ranlib libCRISP.a

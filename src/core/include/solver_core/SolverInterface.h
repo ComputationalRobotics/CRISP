@@ -469,11 +469,11 @@ private:
         // solve the subproblem using the QP solver
         if (currentIterate_ == 0) {
             // piqpSolver_.settings().max_iter = 200;
-            piqpSolver_.setup(subproblem.H, subproblem.g, subproblem.Aeq, subproblem.beq, subproblem.Aineq, subproblem.bineq,
-              piqp::nullopt, subproblem.lb, subproblem.ub);
+            piqpSolver_.setup(subproblem.H, subproblem.g, subproblem.Aeq, subproblem.beq, -subproblem.Aineq, -subproblem.bineq,
+            subproblem.lb, subproblem.ub);
           } else {
-            piqpSolver_.update(subproblem.H, subproblem.g, subproblem.Aeq, subproblem.beq, subproblem.Aineq, subproblem.bineq,
-              piqp::nullopt, subproblem.lb, subproblem.ub);
+            piqpSolver_.update(subproblem.H, subproblem.g, subproblem.Aeq, subproblem.beq, -subproblem.Aineq, -subproblem.bineq,
+            subproblem.lb, subproblem.ub);
           }
         piqp::Status status = piqpSolver_.solve();     
         auto endsol = std::chrono::high_resolution_clock::now();

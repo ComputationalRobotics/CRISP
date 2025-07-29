@@ -116,6 +116,8 @@ Install the CppADCodeGen repository:
 Install the PIQP repository:
 ```sh
     git clone https://github.com/PREDICT-EPFL/piqp.git
+    git checkout v0.5.0 
+    (the latest version has unknown incompatiablity with Eigen)
     cd piqp
     mkdir build
     cd build
